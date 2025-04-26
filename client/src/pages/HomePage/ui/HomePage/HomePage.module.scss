@@ -1,0 +1,38 @@
+.pageLayout {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(#def628, #121212);
+  display: grid;
+  grid-template-rows: min-content auto;
+  grid-template-areas:
+    'l h h h r'
+    'l m m m r';
+}
+
+.header {
+  grid-area: h;
+}
+
+.main {
+  grid-area: m;
+}
+
+.sidebar {
+  grid-area: l;
+}
+
+.activityPanel {
+  grid-area: r;
+}
+
+.playlistName {
+  display: block;
+  font-weight: 900;
+  max-width: 659px;
+  letter-spacing: -0.06%;
+}
+
+.playlistSingers {
+  display: block;
+}
