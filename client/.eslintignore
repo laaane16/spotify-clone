@@ -1,0 +1,10 @@
+./git
+./vscode
+build
+coverage
+dist
+node_modules
+README.md
+scripts
+.eslintrc.cjs
+.stylelintrc.js

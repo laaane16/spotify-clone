@@ -1,0 +1,74 @@
+{
+  "compilerOptions": {
+    // ECMAScript version to which the code will be compiled.
+    "target": "ES6",
+
+    // Defines which module system TypeScript will use during compilation.
+    "module": "ESNext",
+
+    // Automatically selects the module format (import/export or require()) depending on the environment.
+    "moduleResolution": "Bundler",
+
+    // Specifies which types and APIs should be included in the project.
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+
+    // For absolute imports
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+    // Use definitions for class fields
+    "useDefineForClassFields": true,
+
+    // Skip checking libraries
+    "skipLibCheck": true,
+
+    // Allows TypeScript files to import each other with TypeScript-specific extensions
+    "allowImportingTsExtensions": true,
+
+    // Warns if certain code that cannot be correctly interpreted by the transpilation process of a single file is written.
+    "isolatedModules": true,
+
+    // Don't generate output files like JavaScript, source maps, or declaration files.
+    "noEmit": true,
+
+    // Enabling allowJs makes the TypeScript compiler handle not only ts files but also js files.
+    "allowJs": false,
+
+    // esModuleInterop allows working with packages that use CommonJS as regular packages using import (require() and module.exports).
+    // import Moment from 'moment';
+    // without the esModuleInterop flag, the result is undefined
+    // console.log(Moment);
+    // with the flag, the result is [object Object]
+    // console.log(Moment);
+    "esModuleInterop": true,
+
+    // JSX support
+    "jsx": "react-jsx",
+
+    // The strict flag is directly related to type checking. Enabling it automatically activates all strict check flags.
+    "strict": true,
+
+    // Enables case-sensitive import for file names.
+    // For example, even in case-insensitive file systems, if you try to import
+    // import FileManager from './FileManager.ts',
+    // and the file is actually named fileManager.ts, it will result in an error.
+    "forceConsistentCasingInFileNames": true,
+
+    // If a library does not have a default import, the flag tells the compiler that you can write imports like this:
+    // instead of this import:
+    // import * as React from 'react';
+    // you can write like this:
+    // import React from 'react';
+    "allowSyntheticDefaultImports": true,
+
+    // The flag prevents accessing properties of an object via dot notation
+    // if the object's properties are defined not explicitly, but through arbitrary parameters (index signature).
+    "noPropertyAccessFromIndexSignature": true,
+
+    "types": ["vite/client", "vitest/globals"]
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}
