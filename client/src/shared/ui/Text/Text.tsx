@@ -8,7 +8,7 @@ const TextSizes: Record<TextVariant, string> = {
   xs: styles.sizeXs,
   s: styles.sizeS,
   m: styles.sizeM,
-  l: styles.siseL,
+  l: styles.sizeL,
   xl: styles.sizeXl,
   xxl: styles.sizeXxl,
 };
