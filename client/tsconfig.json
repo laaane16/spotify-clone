@@ -63,10 +63,6 @@
     // import React from 'react';
     "allowSyntheticDefaultImports": true,
 
-    // The flag prevents accessing properties of an object via dot notation
-    // if the object's properties are defined not explicitly, but through arbitrary parameters (index signature).
-    "noPropertyAccessFromIndexSignature": true,
-
     "types": ["vite/client", "vitest/globals"]
   },
   "include": ["**/*.ts", "**/*.tsx"],

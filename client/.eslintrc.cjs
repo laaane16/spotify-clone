@@ -14,9 +14,20 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',
+    tsconfigRootDir: __dirname,
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
+  settings: {
+    'import/extensions': ['.ts', '.tsx'],
+    'import/resolver': {
+      node: {
+        paths: ['./src'],
+        moduleDirectory: ['node_modules', 'src/'],
+      },
+    },
+  },
+  ignorePatterns: ['.eslintrc.cjs'],
   rules: {
     'linebreak-style': 'off',
     'arrow-parens': 'off',
@@ -25,7 +36,11 @@ module.exports = {
     'function-paren-newline': 'off',
     'no-plusplus': 'off',
     'space-before-function-paren': 0,
+    'import/prefer-default-export': 'off',
+    'import/extensions': 'off',
 
+    '@typescript-eslint/no-unused-vars': 'warn',
+    'no-restricted-exports': 'off',
     'max-len': [
       'error',
       100,
@@ -53,6 +68,8 @@ module.exports = {
       },
     ],
 
+    'react/no-unused-prop-types': 'off',
+    'react/require-default-props': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/function-component-definition': [
       2,

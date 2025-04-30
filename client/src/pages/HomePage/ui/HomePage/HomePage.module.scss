@@ -1,0 +1,59 @@
+.pageLayout {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(#def628, #121212);
+  display: grid;
+  grid-template-rows: min-content auto;
+  grid-template-areas:
+    'l h h h r'
+    'l m m m r';
+}
+
+.header {
+  grid-area: h;
+}
+
+// TODO: move padding and gap
+.main {
+  grid-area: m;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  padding: 0px 40px;
+}
+
+.img {
+  background-color: #121212;
+  opacity: 0.3;
+  width: 300px;
+  height: 300px;
+}
+
+.info {
+}
+
+.sidebar {
+  grid-area: l;
+  min-width: 250px;
+}
+
+.activityPanel {
+  grid-area: r;
+  min-width: 250px;
+}
+
+.playlistName {
+  display: block;
+  font-weight: 900;
+  max-width: 659px;
+  letter-spacing: -0.06%;
+}
+
+.playlistSingers {
+  display: block;
+}
