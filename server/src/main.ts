@@ -6,7 +6,12 @@ import { JwtAuthGuard } from './auth/jwt-auth.guard';
 import { JwtService } from '@nestjs/jwt';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    cors: {
+      credentials: true,
+      origin: process.env.CLIENT_URL,
+    },
+  });
 
   const config = new DocumentBuilder()
     .setTitle('Spotify')

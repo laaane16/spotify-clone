@@ -4,6 +4,7 @@ import { CreateUserDto } from 'src/user/dto/create-user.dto';
 import { UserModel } from 'src/user/user.model';
 import { UserService } from 'src/user/user.service';
 import { JwtService } from '@nestjs/jwt';
+import { GetUserDto } from 'src/user/dto/get-user.dto';
 
 @Injectable()
 export class AuthService {
@@ -19,7 +20,9 @@ export class AuthService {
     const passwordEquals = compareSync(password, candidate?.password || '');
 
     if (candidate && passwordEquals) {
-      return this.generateToken(candidate);
+      const preparedUser = new GetUserDto(candidate);
+
+      return { user: preparedUser, token: this.generateToken(candidate) };
     }
 
     throw new HttpException(
@@ -44,12 +47,13 @@ export class AuthService {
       ...userDto,
       password: hashedPassword,
     });
+    const preparedUser = new GetUserDto(user);
 
-    return this.generateToken(user);
+    return { user: preparedUser, token: this.generateToken(user) };
   }
 
   generateToken(user: UserModel) {
     const payload = { id: user.id, email: user.email };
-    return { token: this.jwtService.sign(payload) };
+    return this.jwtService.sign(payload);
   }
 }

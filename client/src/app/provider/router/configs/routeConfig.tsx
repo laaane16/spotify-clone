@@ -17,10 +17,10 @@ const SearchPage = lazy(() => import('@/pages/SearchPage'));
 const LoginPage = lazy(() => import('@/pages/AuthPage'));
 const RegistrationPage = lazy(() => import('@/pages/AuthPage'));
 
-interface IRoute {
+export interface IRoute {
   element: ReactElement;
   path: string;
-  authOnly?: boolean;
+  public?: boolean;
 }
 type AppRoutesKeys = keyof typeof AppRoutes;
 type RouteConfig = Record<(typeof AppRoutes)[AppRoutesKeys], IRoute>;
@@ -45,10 +45,12 @@ const routeConfig: RouteConfig = {
   [AppRoutes.REGISTRATION]: {
     element: <RegistrationPage />,
     path: getRegistrationRoute(),
+    public: true,
   },
   [AppRoutes.LOGIN]: {
     element: <LoginPage />,
     path: getLoginRoute(),
+    public: true,
   },
 };
 

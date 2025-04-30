@@ -1,5 +1,4 @@
-import { FC, lazy } from 'react';
-import { useTranslation } from 'react-i18next';
+import { FC, lazy, Suspense } from 'react';
 
 import { getLoginRoute, getRegistrationRoute } from '@/shared/configs';
 
@@ -18,7 +17,6 @@ const authPageMappper = {
 };
 
 const AuthPage: FC<Props> = (props) => {
-  const { t } = useTranslation();
   const { pathname } = window.location;
 
   const element = authPageMappper[pathname];
