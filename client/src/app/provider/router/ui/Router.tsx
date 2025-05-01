@@ -1,11 +1,12 @@
-import { FC, ReactNode, Suspense } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { FC, ReactNode, Suspense, useEffect } from 'react';
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 
 import routeConfig, { IRoute } from '../configs/routeConfig';
-import { getUserId } from '@/entities/User/model/store/userStore';
-import { getLoginRoute } from '@/shared/configs';
+import { getUserId, getUserInitData, getUserInited } from '@/entities/User/model/store/userStore';
+import { getHomeRoute, getLoginRoute } from '@/shared/configs';
 import PageLoader from '@/shared/ui/PageLoader/PageLoader';
 import NotFoundPage from '@/pages/NotFoundPage/ui/NotFoundPage';
+import { loginByUsername } from '@/pages/AuthPage/model/services/loginByUsername/loginByUsername';
 
 const suspensedEl = (el: ReactNode): ReactNode => (
   <Suspense fallback={<PageLoader />}>{el}</Suspense>
@@ -19,9 +20,25 @@ const checkRouteAccess = (userId: number | null, route: IRoute) => {
 };
 
 const Router: FC = (props) => {
-  const userId = getUserId();
+  const navigate = useNavigate();
 
-  return (
+  const userId = getUserId();
+  const initUserData = getUserInitData();
+  const initedUser = getUserInited();
+
+  useEffect(() => {
+    initUserData();
+  }, []);
+
+  useEffect(() => {
+    if (initedUser && userId) {
+      navigate(getHomeRoute());
+    }
+  }, [initedUser]);
+
+  return !initedUser ? (
+    <PageLoader />
+  ) : (
     <Routes>
       {Object.values(routeConfig).map((route) =>
         checkRouteAccess(userId, route) ? (

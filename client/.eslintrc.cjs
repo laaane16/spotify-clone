@@ -38,6 +38,7 @@ module.exports = {
     'space-before-function-paren': 0,
     'import/prefer-default-export': 'off',
     'import/extensions': 'off',
+    'no-underscope-dangle': 'allow',
 
     '@typescript-eslint/no-unused-vars': 'warn',
     'no-restricted-exports': 'off',
