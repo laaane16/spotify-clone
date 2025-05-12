@@ -123,6 +123,26 @@ exports.Prisma.UserScalarFieldEnum = {
   password: 'password'
 };
 
+exports.Prisma.ArtistScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  picture: 'picture'
+};
+
+exports.Prisma.TrackScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  listens: 'listens',
+  picture: 'picture',
+  audio: 'audio'
+};
+
+exports.Prisma.CommentScalarFieldEnum = {
+  id: 'id',
+  description: 'description',
+  trackId: 'trackId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -135,7 +155,10 @@ exports.Prisma.QueryMode = {
 
 
 exports.Prisma.ModelName = {
-  User: 'User'
+  User: 'User',
+  Artist: 'Artist',
+  Track: 'Track',
+  Comment: 'Comment'
 };
 
 /**

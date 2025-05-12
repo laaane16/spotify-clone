@@ -18,6 +18,21 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  * 
  */
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
+/**
+ * Model Artist
+ * 
+ */
+export type Artist = $Result.DefaultSelection<Prisma.$ArtistPayload>
+/**
+ * Model Track
+ * 
+ */
+export type Track = $Result.DefaultSelection<Prisma.$TrackPayload>
+/**
+ * Model Comment
+ * 
+ */
+export type Comment = $Result.DefaultSelection<Prisma.$CommentPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -153,6 +168,36 @@ export class PrismaClient<
     * ```
     */
   get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.artist`: Exposes CRUD operations for the **Artist** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Artists
+    * const artists = await prisma.artist.findMany()
+    * ```
+    */
+  get artist(): Prisma.ArtistDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.track`: Exposes CRUD operations for the **Track** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Tracks
+    * const tracks = await prisma.track.findMany()
+    * ```
+    */
+  get track(): Prisma.TrackDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.comment`: Exposes CRUD operations for the **Comment** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Comments
+    * const comments = await prisma.comment.findMany()
+    * ```
+    */
+  get comment(): Prisma.CommentDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -593,7 +638,10 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    User: 'User'
+    User: 'User',
+    Artist: 'Artist',
+    Track: 'Track',
+    Comment: 'Comment'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -612,7 +660,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user"
+      modelProps: "user" | "artist" | "track" | "comment"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -687,6 +735,228 @@ export namespace Prisma {
           count: {
             args: Prisma.UserCountArgs<ExtArgs>
             result: $Utils.Optional<UserCountAggregateOutputType> | number
+          }
+        }
+      }
+      Artist: {
+        payload: Prisma.$ArtistPayload<ExtArgs>
+        fields: Prisma.ArtistFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ArtistFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArtistPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ArtistFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArtistPayload>
+          }
+          findFirst: {
+            args: Prisma.ArtistFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArtistPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ArtistFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArtistPayload>
+          }
+          findMany: {
+            args: Prisma.ArtistFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArtistPayload>[]
+          }
+          create: {
+            args: Prisma.ArtistCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArtistPayload>
+          }
+          createMany: {
+            args: Prisma.ArtistCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ArtistCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArtistPayload>[]
+          }
+          delete: {
+            args: Prisma.ArtistDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArtistPayload>
+          }
+          update: {
+            args: Prisma.ArtistUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArtistPayload>
+          }
+          deleteMany: {
+            args: Prisma.ArtistDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ArtistUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ArtistUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArtistPayload>[]
+          }
+          upsert: {
+            args: Prisma.ArtistUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ArtistPayload>
+          }
+          aggregate: {
+            args: Prisma.ArtistAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateArtist>
+          }
+          groupBy: {
+            args: Prisma.ArtistGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ArtistGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ArtistCountArgs<ExtArgs>
+            result: $Utils.Optional<ArtistCountAggregateOutputType> | number
+          }
+        }
+      }
+      Track: {
+        payload: Prisma.$TrackPayload<ExtArgs>
+        fields: Prisma.TrackFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TrackFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrackPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TrackFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrackPayload>
+          }
+          findFirst: {
+            args: Prisma.TrackFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrackPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TrackFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrackPayload>
+          }
+          findMany: {
+            args: Prisma.TrackFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrackPayload>[]
+          }
+          create: {
+            args: Prisma.TrackCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrackPayload>
+          }
+          createMany: {
+            args: Prisma.TrackCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TrackCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrackPayload>[]
+          }
+          delete: {
+            args: Prisma.TrackDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrackPayload>
+          }
+          update: {
+            args: Prisma.TrackUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrackPayload>
+          }
+          deleteMany: {
+            args: Prisma.TrackDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TrackUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.TrackUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrackPayload>[]
+          }
+          upsert: {
+            args: Prisma.TrackUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrackPayload>
+          }
+          aggregate: {
+            args: Prisma.TrackAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTrack>
+          }
+          groupBy: {
+            args: Prisma.TrackGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TrackGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TrackCountArgs<ExtArgs>
+            result: $Utils.Optional<TrackCountAggregateOutputType> | number
+          }
+        }
+      }
+      Comment: {
+        payload: Prisma.$CommentPayload<ExtArgs>
+        fields: Prisma.CommentFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CommentFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CommentFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentPayload>
+          }
+          findFirst: {
+            args: Prisma.CommentFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CommentFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentPayload>
+          }
+          findMany: {
+            args: Prisma.CommentFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentPayload>[]
+          }
+          create: {
+            args: Prisma.CommentCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentPayload>
+          }
+          createMany: {
+            args: Prisma.CommentCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CommentCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentPayload>[]
+          }
+          delete: {
+            args: Prisma.CommentDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentPayload>
+          }
+          update: {
+            args: Prisma.CommentUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentPayload>
+          }
+          deleteMany: {
+            args: Prisma.CommentDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CommentUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CommentUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentPayload>[]
+          }
+          upsert: {
+            args: Prisma.CommentUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentPayload>
+          }
+          aggregate: {
+            args: Prisma.CommentAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateComment>
+          }
+          groupBy: {
+            args: Prisma.CommentGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CommentGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CommentCountArgs<ExtArgs>
+            result: $Utils.Optional<CommentCountAggregateOutputType> | number
           }
         }
       }
@@ -775,6 +1045,9 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     user?: UserOmit
+    artist?: ArtistOmit
+    track?: TrackOmit
+    comment?: CommentOmit
   }
 
   /* Types for Logging */
@@ -863,6 +1136,76 @@ export namespace Prisma {
    * Count Types
    */
 
+
+  /**
+   * Count Type ArtistCountOutputType
+   */
+
+  export type ArtistCountOutputType = {
+    tracks: number
+  }
+
+  export type ArtistCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tracks?: boolean | ArtistCountOutputTypeCountTracksArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ArtistCountOutputType without action
+   */
+  export type ArtistCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArtistCountOutputType
+     */
+    select?: ArtistCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ArtistCountOutputType without action
+   */
+  export type ArtistCountOutputTypeCountTracksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TrackWhereInput
+  }
+
+
+  /**
+   * Count Type TrackCountOutputType
+   */
+
+  export type TrackCountOutputType = {
+    artist: number
+    comments: number
+  }
+
+  export type TrackCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    artist?: boolean | TrackCountOutputTypeCountArtistArgs
+    comments?: boolean | TrackCountOutputTypeCountCommentsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * TrackCountOutputType without action
+   */
+  export type TrackCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrackCountOutputType
+     */
+    select?: TrackCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * TrackCountOutputType without action
+   */
+  export type TrackCountOutputTypeCountArtistArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ArtistWhereInput
+  }
+
+  /**
+   * TrackCountOutputType without action
+   */
+  export type TrackCountOutputTypeCountCommentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CommentWhereInput
+  }
 
 
   /**
@@ -1873,6 +2216,3290 @@ export namespace Prisma {
 
 
   /**
+   * Model Artist
+   */
+
+  export type AggregateArtist = {
+    _count: ArtistCountAggregateOutputType | null
+    _avg: ArtistAvgAggregateOutputType | null
+    _sum: ArtistSumAggregateOutputType | null
+    _min: ArtistMinAggregateOutputType | null
+    _max: ArtistMaxAggregateOutputType | null
+  }
+
+  export type ArtistAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type ArtistSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type ArtistMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    picture: string | null
+  }
+
+  export type ArtistMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    picture: string | null
+  }
+
+  export type ArtistCountAggregateOutputType = {
+    id: number
+    name: number
+    picture: number
+    _all: number
+  }
+
+
+  export type ArtistAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type ArtistSumAggregateInputType = {
+    id?: true
+  }
+
+  export type ArtistMinAggregateInputType = {
+    id?: true
+    name?: true
+    picture?: true
+  }
+
+  export type ArtistMaxAggregateInputType = {
+    id?: true
+    name?: true
+    picture?: true
+  }
+
+  export type ArtistCountAggregateInputType = {
+    id?: true
+    name?: true
+    picture?: true
+    _all?: true
+  }
+
+  export type ArtistAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Artist to aggregate.
+     */
+    where?: ArtistWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Artists to fetch.
+     */
+    orderBy?: ArtistOrderByWithRelationInput | ArtistOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ArtistWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Artists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Artists.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Artists
+    **/
+    _count?: true | ArtistCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ArtistAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ArtistSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ArtistMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ArtistMaxAggregateInputType
+  }
+
+  export type GetArtistAggregateType<T extends ArtistAggregateArgs> = {
+        [P in keyof T & keyof AggregateArtist]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateArtist[P]>
+      : GetScalarType<T[P], AggregateArtist[P]>
+  }
+
+
+
+
+  export type ArtistGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ArtistWhereInput
+    orderBy?: ArtistOrderByWithAggregationInput | ArtistOrderByWithAggregationInput[]
+    by: ArtistScalarFieldEnum[] | ArtistScalarFieldEnum
+    having?: ArtistScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ArtistCountAggregateInputType | true
+    _avg?: ArtistAvgAggregateInputType
+    _sum?: ArtistSumAggregateInputType
+    _min?: ArtistMinAggregateInputType
+    _max?: ArtistMaxAggregateInputType
+  }
+
+  export type ArtistGroupByOutputType = {
+    id: number
+    name: string
+    picture: string
+    _count: ArtistCountAggregateOutputType | null
+    _avg: ArtistAvgAggregateOutputType | null
+    _sum: ArtistSumAggregateOutputType | null
+    _min: ArtistMinAggregateOutputType | null
+    _max: ArtistMaxAggregateOutputType | null
+  }
+
+  type GetArtistGroupByPayload<T extends ArtistGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ArtistGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ArtistGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ArtistGroupByOutputType[P]>
+            : GetScalarType<T[P], ArtistGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ArtistSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    picture?: boolean
+    tracks?: boolean | Artist$tracksArgs<ExtArgs>
+    _count?: boolean | ArtistCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["artist"]>
+
+  export type ArtistSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    picture?: boolean
+  }, ExtArgs["result"]["artist"]>
+
+  export type ArtistSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    picture?: boolean
+  }, ExtArgs["result"]["artist"]>
+
+  export type ArtistSelectScalar = {
+    id?: boolean
+    name?: boolean
+    picture?: boolean
+  }
+
+  export type ArtistOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "picture", ExtArgs["result"]["artist"]>
+  export type ArtistInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tracks?: boolean | Artist$tracksArgs<ExtArgs>
+    _count?: boolean | ArtistCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ArtistIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type ArtistIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $ArtistPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Artist"
+    objects: {
+      tracks: Prisma.$TrackPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      picture: string
+    }, ExtArgs["result"]["artist"]>
+    composites: {}
+  }
+
+  type ArtistGetPayload<S extends boolean | null | undefined | ArtistDefaultArgs> = $Result.GetResult<Prisma.$ArtistPayload, S>
+
+  type ArtistCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ArtistFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ArtistCountAggregateInputType | true
+    }
+
+  export interface ArtistDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Artist'], meta: { name: 'Artist' } }
+    /**
+     * Find zero or one Artist that matches the filter.
+     * @param {ArtistFindUniqueArgs} args - Arguments to find a Artist
+     * @example
+     * // Get one Artist
+     * const artist = await prisma.artist.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ArtistFindUniqueArgs>(args: SelectSubset<T, ArtistFindUniqueArgs<ExtArgs>>): Prisma__ArtistClient<$Result.GetResult<Prisma.$ArtistPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Artist that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ArtistFindUniqueOrThrowArgs} args - Arguments to find a Artist
+     * @example
+     * // Get one Artist
+     * const artist = await prisma.artist.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ArtistFindUniqueOrThrowArgs>(args: SelectSubset<T, ArtistFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ArtistClient<$Result.GetResult<Prisma.$ArtistPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Artist that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArtistFindFirstArgs} args - Arguments to find a Artist
+     * @example
+     * // Get one Artist
+     * const artist = await prisma.artist.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ArtistFindFirstArgs>(args?: SelectSubset<T, ArtistFindFirstArgs<ExtArgs>>): Prisma__ArtistClient<$Result.GetResult<Prisma.$ArtistPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Artist that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArtistFindFirstOrThrowArgs} args - Arguments to find a Artist
+     * @example
+     * // Get one Artist
+     * const artist = await prisma.artist.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ArtistFindFirstOrThrowArgs>(args?: SelectSubset<T, ArtistFindFirstOrThrowArgs<ExtArgs>>): Prisma__ArtistClient<$Result.GetResult<Prisma.$ArtistPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Artists that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArtistFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Artists
+     * const artists = await prisma.artist.findMany()
+     * 
+     * // Get first 10 Artists
+     * const artists = await prisma.artist.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const artistWithIdOnly = await prisma.artist.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ArtistFindManyArgs>(args?: SelectSubset<T, ArtistFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArtistPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Artist.
+     * @param {ArtistCreateArgs} args - Arguments to create a Artist.
+     * @example
+     * // Create one Artist
+     * const Artist = await prisma.artist.create({
+     *   data: {
+     *     // ... data to create a Artist
+     *   }
+     * })
+     * 
+     */
+    create<T extends ArtistCreateArgs>(args: SelectSubset<T, ArtistCreateArgs<ExtArgs>>): Prisma__ArtistClient<$Result.GetResult<Prisma.$ArtistPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Artists.
+     * @param {ArtistCreateManyArgs} args - Arguments to create many Artists.
+     * @example
+     * // Create many Artists
+     * const artist = await prisma.artist.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ArtistCreateManyArgs>(args?: SelectSubset<T, ArtistCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Artists and returns the data saved in the database.
+     * @param {ArtistCreateManyAndReturnArgs} args - Arguments to create many Artists.
+     * @example
+     * // Create many Artists
+     * const artist = await prisma.artist.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Artists and only return the `id`
+     * const artistWithIdOnly = await prisma.artist.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ArtistCreateManyAndReturnArgs>(args?: SelectSubset<T, ArtistCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArtistPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Artist.
+     * @param {ArtistDeleteArgs} args - Arguments to delete one Artist.
+     * @example
+     * // Delete one Artist
+     * const Artist = await prisma.artist.delete({
+     *   where: {
+     *     // ... filter to delete one Artist
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ArtistDeleteArgs>(args: SelectSubset<T, ArtistDeleteArgs<ExtArgs>>): Prisma__ArtistClient<$Result.GetResult<Prisma.$ArtistPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Artist.
+     * @param {ArtistUpdateArgs} args - Arguments to update one Artist.
+     * @example
+     * // Update one Artist
+     * const artist = await prisma.artist.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ArtistUpdateArgs>(args: SelectSubset<T, ArtistUpdateArgs<ExtArgs>>): Prisma__ArtistClient<$Result.GetResult<Prisma.$ArtistPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Artists.
+     * @param {ArtistDeleteManyArgs} args - Arguments to filter Artists to delete.
+     * @example
+     * // Delete a few Artists
+     * const { count } = await prisma.artist.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ArtistDeleteManyArgs>(args?: SelectSubset<T, ArtistDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Artists.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArtistUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Artists
+     * const artist = await prisma.artist.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ArtistUpdateManyArgs>(args: SelectSubset<T, ArtistUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Artists and returns the data updated in the database.
+     * @param {ArtistUpdateManyAndReturnArgs} args - Arguments to update many Artists.
+     * @example
+     * // Update many Artists
+     * const artist = await prisma.artist.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Artists and only return the `id`
+     * const artistWithIdOnly = await prisma.artist.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ArtistUpdateManyAndReturnArgs>(args: SelectSubset<T, ArtistUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArtistPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Artist.
+     * @param {ArtistUpsertArgs} args - Arguments to update or create a Artist.
+     * @example
+     * // Update or create a Artist
+     * const artist = await prisma.artist.upsert({
+     *   create: {
+     *     // ... data to create a Artist
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Artist we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ArtistUpsertArgs>(args: SelectSubset<T, ArtistUpsertArgs<ExtArgs>>): Prisma__ArtistClient<$Result.GetResult<Prisma.$ArtistPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Artists.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArtistCountArgs} args - Arguments to filter Artists to count.
+     * @example
+     * // Count the number of Artists
+     * const count = await prisma.artist.count({
+     *   where: {
+     *     // ... the filter for the Artists we want to count
+     *   }
+     * })
+    **/
+    count<T extends ArtistCountArgs>(
+      args?: Subset<T, ArtistCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ArtistCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Artist.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArtistAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ArtistAggregateArgs>(args: Subset<T, ArtistAggregateArgs>): Prisma.PrismaPromise<GetArtistAggregateType<T>>
+
+    /**
+     * Group by Artist.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArtistGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ArtistGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ArtistGroupByArgs['orderBy'] }
+        : { orderBy?: ArtistGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ArtistGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetArtistGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Artist model
+   */
+  readonly fields: ArtistFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Artist.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ArtistClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    tracks<T extends Artist$tracksArgs<ExtArgs> = {}>(args?: Subset<T, Artist$tracksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Artist model
+   */
+  interface ArtistFieldRefs {
+    readonly id: FieldRef<"Artist", 'Int'>
+    readonly name: FieldRef<"Artist", 'String'>
+    readonly picture: FieldRef<"Artist", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Artist findUnique
+   */
+  export type ArtistFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Artist
+     */
+    select?: ArtistSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Artist
+     */
+    omit?: ArtistOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArtistInclude<ExtArgs> | null
+    /**
+     * Filter, which Artist to fetch.
+     */
+    where: ArtistWhereUniqueInput
+  }
+
+  /**
+   * Artist findUniqueOrThrow
+   */
+  export type ArtistFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Artist
+     */
+    select?: ArtistSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Artist
+     */
+    omit?: ArtistOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArtistInclude<ExtArgs> | null
+    /**
+     * Filter, which Artist to fetch.
+     */
+    where: ArtistWhereUniqueInput
+  }
+
+  /**
+   * Artist findFirst
+   */
+  export type ArtistFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Artist
+     */
+    select?: ArtistSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Artist
+     */
+    omit?: ArtistOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArtistInclude<ExtArgs> | null
+    /**
+     * Filter, which Artist to fetch.
+     */
+    where?: ArtistWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Artists to fetch.
+     */
+    orderBy?: ArtistOrderByWithRelationInput | ArtistOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Artists.
+     */
+    cursor?: ArtistWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Artists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Artists.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Artists.
+     */
+    distinct?: ArtistScalarFieldEnum | ArtistScalarFieldEnum[]
+  }
+
+  /**
+   * Artist findFirstOrThrow
+   */
+  export type ArtistFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Artist
+     */
+    select?: ArtistSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Artist
+     */
+    omit?: ArtistOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArtistInclude<ExtArgs> | null
+    /**
+     * Filter, which Artist to fetch.
+     */
+    where?: ArtistWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Artists to fetch.
+     */
+    orderBy?: ArtistOrderByWithRelationInput | ArtistOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Artists.
+     */
+    cursor?: ArtistWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Artists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Artists.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Artists.
+     */
+    distinct?: ArtistScalarFieldEnum | ArtistScalarFieldEnum[]
+  }
+
+  /**
+   * Artist findMany
+   */
+  export type ArtistFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Artist
+     */
+    select?: ArtistSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Artist
+     */
+    omit?: ArtistOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArtistInclude<ExtArgs> | null
+    /**
+     * Filter, which Artists to fetch.
+     */
+    where?: ArtistWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Artists to fetch.
+     */
+    orderBy?: ArtistOrderByWithRelationInput | ArtistOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Artists.
+     */
+    cursor?: ArtistWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Artists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Artists.
+     */
+    skip?: number
+    distinct?: ArtistScalarFieldEnum | ArtistScalarFieldEnum[]
+  }
+
+  /**
+   * Artist create
+   */
+  export type ArtistCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Artist
+     */
+    select?: ArtistSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Artist
+     */
+    omit?: ArtistOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArtistInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Artist.
+     */
+    data: XOR<ArtistCreateInput, ArtistUncheckedCreateInput>
+  }
+
+  /**
+   * Artist createMany
+   */
+  export type ArtistCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Artists.
+     */
+    data: ArtistCreateManyInput | ArtistCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Artist createManyAndReturn
+   */
+  export type ArtistCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Artist
+     */
+    select?: ArtistSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Artist
+     */
+    omit?: ArtistOmit<ExtArgs> | null
+    /**
+     * The data used to create many Artists.
+     */
+    data: ArtistCreateManyInput | ArtistCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Artist update
+   */
+  export type ArtistUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Artist
+     */
+    select?: ArtistSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Artist
+     */
+    omit?: ArtistOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArtistInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Artist.
+     */
+    data: XOR<ArtistUpdateInput, ArtistUncheckedUpdateInput>
+    /**
+     * Choose, which Artist to update.
+     */
+    where: ArtistWhereUniqueInput
+  }
+
+  /**
+   * Artist updateMany
+   */
+  export type ArtistUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Artists.
+     */
+    data: XOR<ArtistUpdateManyMutationInput, ArtistUncheckedUpdateManyInput>
+    /**
+     * Filter which Artists to update
+     */
+    where?: ArtistWhereInput
+    /**
+     * Limit how many Artists to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Artist updateManyAndReturn
+   */
+  export type ArtistUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Artist
+     */
+    select?: ArtistSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Artist
+     */
+    omit?: ArtistOmit<ExtArgs> | null
+    /**
+     * The data used to update Artists.
+     */
+    data: XOR<ArtistUpdateManyMutationInput, ArtistUncheckedUpdateManyInput>
+    /**
+     * Filter which Artists to update
+     */
+    where?: ArtistWhereInput
+    /**
+     * Limit how many Artists to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Artist upsert
+   */
+  export type ArtistUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Artist
+     */
+    select?: ArtistSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Artist
+     */
+    omit?: ArtistOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArtistInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Artist to update in case it exists.
+     */
+    where: ArtistWhereUniqueInput
+    /**
+     * In case the Artist found by the `where` argument doesn't exist, create a new Artist with this data.
+     */
+    create: XOR<ArtistCreateInput, ArtistUncheckedCreateInput>
+    /**
+     * In case the Artist was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ArtistUpdateInput, ArtistUncheckedUpdateInput>
+  }
+
+  /**
+   * Artist delete
+   */
+  export type ArtistDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Artist
+     */
+    select?: ArtistSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Artist
+     */
+    omit?: ArtistOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArtistInclude<ExtArgs> | null
+    /**
+     * Filter which Artist to delete.
+     */
+    where: ArtistWhereUniqueInput
+  }
+
+  /**
+   * Artist deleteMany
+   */
+  export type ArtistDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Artists to delete
+     */
+    where?: ArtistWhereInput
+    /**
+     * Limit how many Artists to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Artist.tracks
+   */
+  export type Artist$tracksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Track
+     */
+    select?: TrackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Track
+     */
+    omit?: TrackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrackInclude<ExtArgs> | null
+    where?: TrackWhereInput
+    orderBy?: TrackOrderByWithRelationInput | TrackOrderByWithRelationInput[]
+    cursor?: TrackWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TrackScalarFieldEnum | TrackScalarFieldEnum[]
+  }
+
+  /**
+   * Artist without action
+   */
+  export type ArtistDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Artist
+     */
+    select?: ArtistSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Artist
+     */
+    omit?: ArtistOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArtistInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Track
+   */
+
+  export type AggregateTrack = {
+    _count: TrackCountAggregateOutputType | null
+    _avg: TrackAvgAggregateOutputType | null
+    _sum: TrackSumAggregateOutputType | null
+    _min: TrackMinAggregateOutputType | null
+    _max: TrackMaxAggregateOutputType | null
+  }
+
+  export type TrackAvgAggregateOutputType = {
+    id: number | null
+    listens: number | null
+  }
+
+  export type TrackSumAggregateOutputType = {
+    id: number | null
+    listens: number | null
+  }
+
+  export type TrackMinAggregateOutputType = {
+    id: number | null
+    title: string | null
+    listens: number | null
+    picture: string | null
+    audio: string | null
+  }
+
+  export type TrackMaxAggregateOutputType = {
+    id: number | null
+    title: string | null
+    listens: number | null
+    picture: string | null
+    audio: string | null
+  }
+
+  export type TrackCountAggregateOutputType = {
+    id: number
+    title: number
+    listens: number
+    picture: number
+    audio: number
+    _all: number
+  }
+
+
+  export type TrackAvgAggregateInputType = {
+    id?: true
+    listens?: true
+  }
+
+  export type TrackSumAggregateInputType = {
+    id?: true
+    listens?: true
+  }
+
+  export type TrackMinAggregateInputType = {
+    id?: true
+    title?: true
+    listens?: true
+    picture?: true
+    audio?: true
+  }
+
+  export type TrackMaxAggregateInputType = {
+    id?: true
+    title?: true
+    listens?: true
+    picture?: true
+    audio?: true
+  }
+
+  export type TrackCountAggregateInputType = {
+    id?: true
+    title?: true
+    listens?: true
+    picture?: true
+    audio?: true
+    _all?: true
+  }
+
+  export type TrackAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Track to aggregate.
+     */
+    where?: TrackWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Tracks to fetch.
+     */
+    orderBy?: TrackOrderByWithRelationInput | TrackOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TrackWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Tracks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Tracks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Tracks
+    **/
+    _count?: true | TrackCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TrackAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TrackSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TrackMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TrackMaxAggregateInputType
+  }
+
+  export type GetTrackAggregateType<T extends TrackAggregateArgs> = {
+        [P in keyof T & keyof AggregateTrack]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTrack[P]>
+      : GetScalarType<T[P], AggregateTrack[P]>
+  }
+
+
+
+
+  export type TrackGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TrackWhereInput
+    orderBy?: TrackOrderByWithAggregationInput | TrackOrderByWithAggregationInput[]
+    by: TrackScalarFieldEnum[] | TrackScalarFieldEnum
+    having?: TrackScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TrackCountAggregateInputType | true
+    _avg?: TrackAvgAggregateInputType
+    _sum?: TrackSumAggregateInputType
+    _min?: TrackMinAggregateInputType
+    _max?: TrackMaxAggregateInputType
+  }
+
+  export type TrackGroupByOutputType = {
+    id: number
+    title: string
+    listens: number
+    picture: string
+    audio: string
+    _count: TrackCountAggregateOutputType | null
+    _avg: TrackAvgAggregateOutputType | null
+    _sum: TrackSumAggregateOutputType | null
+    _min: TrackMinAggregateOutputType | null
+    _max: TrackMaxAggregateOutputType | null
+  }
+
+  type GetTrackGroupByPayload<T extends TrackGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TrackGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TrackGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TrackGroupByOutputType[P]>
+            : GetScalarType<T[P], TrackGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TrackSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    listens?: boolean
+    picture?: boolean
+    audio?: boolean
+    artist?: boolean | Track$artistArgs<ExtArgs>
+    comments?: boolean | Track$commentsArgs<ExtArgs>
+    _count?: boolean | TrackCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["track"]>
+
+  export type TrackSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    listens?: boolean
+    picture?: boolean
+    audio?: boolean
+  }, ExtArgs["result"]["track"]>
+
+  export type TrackSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    listens?: boolean
+    picture?: boolean
+    audio?: boolean
+  }, ExtArgs["result"]["track"]>
+
+  export type TrackSelectScalar = {
+    id?: boolean
+    title?: boolean
+    listens?: boolean
+    picture?: boolean
+    audio?: boolean
+  }
+
+  export type TrackOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "listens" | "picture" | "audio", ExtArgs["result"]["track"]>
+  export type TrackInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    artist?: boolean | Track$artistArgs<ExtArgs>
+    comments?: boolean | Track$commentsArgs<ExtArgs>
+    _count?: boolean | TrackCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type TrackIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type TrackIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $TrackPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Track"
+    objects: {
+      artist: Prisma.$ArtistPayload<ExtArgs>[]
+      comments: Prisma.$CommentPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      title: string
+      listens: number
+      picture: string
+      audio: string
+    }, ExtArgs["result"]["track"]>
+    composites: {}
+  }
+
+  type TrackGetPayload<S extends boolean | null | undefined | TrackDefaultArgs> = $Result.GetResult<Prisma.$TrackPayload, S>
+
+  type TrackCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TrackFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TrackCountAggregateInputType | true
+    }
+
+  export interface TrackDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Track'], meta: { name: 'Track' } }
+    /**
+     * Find zero or one Track that matches the filter.
+     * @param {TrackFindUniqueArgs} args - Arguments to find a Track
+     * @example
+     * // Get one Track
+     * const track = await prisma.track.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TrackFindUniqueArgs>(args: SelectSubset<T, TrackFindUniqueArgs<ExtArgs>>): Prisma__TrackClient<$Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Track that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TrackFindUniqueOrThrowArgs} args - Arguments to find a Track
+     * @example
+     * // Get one Track
+     * const track = await prisma.track.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TrackFindUniqueOrThrowArgs>(args: SelectSubset<T, TrackFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TrackClient<$Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Track that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrackFindFirstArgs} args - Arguments to find a Track
+     * @example
+     * // Get one Track
+     * const track = await prisma.track.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TrackFindFirstArgs>(args?: SelectSubset<T, TrackFindFirstArgs<ExtArgs>>): Prisma__TrackClient<$Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Track that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrackFindFirstOrThrowArgs} args - Arguments to find a Track
+     * @example
+     * // Get one Track
+     * const track = await prisma.track.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TrackFindFirstOrThrowArgs>(args?: SelectSubset<T, TrackFindFirstOrThrowArgs<ExtArgs>>): Prisma__TrackClient<$Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Tracks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrackFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Tracks
+     * const tracks = await prisma.track.findMany()
+     * 
+     * // Get first 10 Tracks
+     * const tracks = await prisma.track.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const trackWithIdOnly = await prisma.track.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TrackFindManyArgs>(args?: SelectSubset<T, TrackFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Track.
+     * @param {TrackCreateArgs} args - Arguments to create a Track.
+     * @example
+     * // Create one Track
+     * const Track = await prisma.track.create({
+     *   data: {
+     *     // ... data to create a Track
+     *   }
+     * })
+     * 
+     */
+    create<T extends TrackCreateArgs>(args: SelectSubset<T, TrackCreateArgs<ExtArgs>>): Prisma__TrackClient<$Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Tracks.
+     * @param {TrackCreateManyArgs} args - Arguments to create many Tracks.
+     * @example
+     * // Create many Tracks
+     * const track = await prisma.track.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TrackCreateManyArgs>(args?: SelectSubset<T, TrackCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Tracks and returns the data saved in the database.
+     * @param {TrackCreateManyAndReturnArgs} args - Arguments to create many Tracks.
+     * @example
+     * // Create many Tracks
+     * const track = await prisma.track.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Tracks and only return the `id`
+     * const trackWithIdOnly = await prisma.track.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TrackCreateManyAndReturnArgs>(args?: SelectSubset<T, TrackCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Track.
+     * @param {TrackDeleteArgs} args - Arguments to delete one Track.
+     * @example
+     * // Delete one Track
+     * const Track = await prisma.track.delete({
+     *   where: {
+     *     // ... filter to delete one Track
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TrackDeleteArgs>(args: SelectSubset<T, TrackDeleteArgs<ExtArgs>>): Prisma__TrackClient<$Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Track.
+     * @param {TrackUpdateArgs} args - Arguments to update one Track.
+     * @example
+     * // Update one Track
+     * const track = await prisma.track.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TrackUpdateArgs>(args: SelectSubset<T, TrackUpdateArgs<ExtArgs>>): Prisma__TrackClient<$Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Tracks.
+     * @param {TrackDeleteManyArgs} args - Arguments to filter Tracks to delete.
+     * @example
+     * // Delete a few Tracks
+     * const { count } = await prisma.track.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TrackDeleteManyArgs>(args?: SelectSubset<T, TrackDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Tracks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrackUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Tracks
+     * const track = await prisma.track.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TrackUpdateManyArgs>(args: SelectSubset<T, TrackUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Tracks and returns the data updated in the database.
+     * @param {TrackUpdateManyAndReturnArgs} args - Arguments to update many Tracks.
+     * @example
+     * // Update many Tracks
+     * const track = await prisma.track.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Tracks and only return the `id`
+     * const trackWithIdOnly = await prisma.track.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends TrackUpdateManyAndReturnArgs>(args: SelectSubset<T, TrackUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Track.
+     * @param {TrackUpsertArgs} args - Arguments to update or create a Track.
+     * @example
+     * // Update or create a Track
+     * const track = await prisma.track.upsert({
+     *   create: {
+     *     // ... data to create a Track
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Track we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TrackUpsertArgs>(args: SelectSubset<T, TrackUpsertArgs<ExtArgs>>): Prisma__TrackClient<$Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Tracks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrackCountArgs} args - Arguments to filter Tracks to count.
+     * @example
+     * // Count the number of Tracks
+     * const count = await prisma.track.count({
+     *   where: {
+     *     // ... the filter for the Tracks we want to count
+     *   }
+     * })
+    **/
+    count<T extends TrackCountArgs>(
+      args?: Subset<T, TrackCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TrackCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Track.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrackAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TrackAggregateArgs>(args: Subset<T, TrackAggregateArgs>): Prisma.PrismaPromise<GetTrackAggregateType<T>>
+
+    /**
+     * Group by Track.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrackGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TrackGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TrackGroupByArgs['orderBy'] }
+        : { orderBy?: TrackGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TrackGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTrackGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Track model
+   */
+  readonly fields: TrackFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Track.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TrackClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    artist<T extends Track$artistArgs<ExtArgs> = {}>(args?: Subset<T, Track$artistArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArtistPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    comments<T extends Track$commentsArgs<ExtArgs> = {}>(args?: Subset<T, Track$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Track model
+   */
+  interface TrackFieldRefs {
+    readonly id: FieldRef<"Track", 'Int'>
+    readonly title: FieldRef<"Track", 'String'>
+    readonly listens: FieldRef<"Track", 'Int'>
+    readonly picture: FieldRef<"Track", 'String'>
+    readonly audio: FieldRef<"Track", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Track findUnique
+   */
+  export type TrackFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Track
+     */
+    select?: TrackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Track
+     */
+    omit?: TrackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrackInclude<ExtArgs> | null
+    /**
+     * Filter, which Track to fetch.
+     */
+    where: TrackWhereUniqueInput
+  }
+
+  /**
+   * Track findUniqueOrThrow
+   */
+  export type TrackFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Track
+     */
+    select?: TrackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Track
+     */
+    omit?: TrackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrackInclude<ExtArgs> | null
+    /**
+     * Filter, which Track to fetch.
+     */
+    where: TrackWhereUniqueInput
+  }
+
+  /**
+   * Track findFirst
+   */
+  export type TrackFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Track
+     */
+    select?: TrackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Track
+     */
+    omit?: TrackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrackInclude<ExtArgs> | null
+    /**
+     * Filter, which Track to fetch.
+     */
+    where?: TrackWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Tracks to fetch.
+     */
+    orderBy?: TrackOrderByWithRelationInput | TrackOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Tracks.
+     */
+    cursor?: TrackWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Tracks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Tracks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Tracks.
+     */
+    distinct?: TrackScalarFieldEnum | TrackScalarFieldEnum[]
+  }
+
+  /**
+   * Track findFirstOrThrow
+   */
+  export type TrackFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Track
+     */
+    select?: TrackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Track
+     */
+    omit?: TrackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrackInclude<ExtArgs> | null
+    /**
+     * Filter, which Track to fetch.
+     */
+    where?: TrackWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Tracks to fetch.
+     */
+    orderBy?: TrackOrderByWithRelationInput | TrackOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Tracks.
+     */
+    cursor?: TrackWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Tracks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Tracks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Tracks.
+     */
+    distinct?: TrackScalarFieldEnum | TrackScalarFieldEnum[]
+  }
+
+  /**
+   * Track findMany
+   */
+  export type TrackFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Track
+     */
+    select?: TrackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Track
+     */
+    omit?: TrackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrackInclude<ExtArgs> | null
+    /**
+     * Filter, which Tracks to fetch.
+     */
+    where?: TrackWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Tracks to fetch.
+     */
+    orderBy?: TrackOrderByWithRelationInput | TrackOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Tracks.
+     */
+    cursor?: TrackWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Tracks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Tracks.
+     */
+    skip?: number
+    distinct?: TrackScalarFieldEnum | TrackScalarFieldEnum[]
+  }
+
+  /**
+   * Track create
+   */
+  export type TrackCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Track
+     */
+    select?: TrackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Track
+     */
+    omit?: TrackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrackInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Track.
+     */
+    data: XOR<TrackCreateInput, TrackUncheckedCreateInput>
+  }
+
+  /**
+   * Track createMany
+   */
+  export type TrackCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Tracks.
+     */
+    data: TrackCreateManyInput | TrackCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Track createManyAndReturn
+   */
+  export type TrackCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Track
+     */
+    select?: TrackSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Track
+     */
+    omit?: TrackOmit<ExtArgs> | null
+    /**
+     * The data used to create many Tracks.
+     */
+    data: TrackCreateManyInput | TrackCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Track update
+   */
+  export type TrackUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Track
+     */
+    select?: TrackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Track
+     */
+    omit?: TrackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrackInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Track.
+     */
+    data: XOR<TrackUpdateInput, TrackUncheckedUpdateInput>
+    /**
+     * Choose, which Track to update.
+     */
+    where: TrackWhereUniqueInput
+  }
+
+  /**
+   * Track updateMany
+   */
+  export type TrackUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Tracks.
+     */
+    data: XOR<TrackUpdateManyMutationInput, TrackUncheckedUpdateManyInput>
+    /**
+     * Filter which Tracks to update
+     */
+    where?: TrackWhereInput
+    /**
+     * Limit how many Tracks to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Track updateManyAndReturn
+   */
+  export type TrackUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Track
+     */
+    select?: TrackSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Track
+     */
+    omit?: TrackOmit<ExtArgs> | null
+    /**
+     * The data used to update Tracks.
+     */
+    data: XOR<TrackUpdateManyMutationInput, TrackUncheckedUpdateManyInput>
+    /**
+     * Filter which Tracks to update
+     */
+    where?: TrackWhereInput
+    /**
+     * Limit how many Tracks to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Track upsert
+   */
+  export type TrackUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Track
+     */
+    select?: TrackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Track
+     */
+    omit?: TrackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrackInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Track to update in case it exists.
+     */
+    where: TrackWhereUniqueInput
+    /**
+     * In case the Track found by the `where` argument doesn't exist, create a new Track with this data.
+     */
+    create: XOR<TrackCreateInput, TrackUncheckedCreateInput>
+    /**
+     * In case the Track was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TrackUpdateInput, TrackUncheckedUpdateInput>
+  }
+
+  /**
+   * Track delete
+   */
+  export type TrackDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Track
+     */
+    select?: TrackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Track
+     */
+    omit?: TrackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrackInclude<ExtArgs> | null
+    /**
+     * Filter which Track to delete.
+     */
+    where: TrackWhereUniqueInput
+  }
+
+  /**
+   * Track deleteMany
+   */
+  export type TrackDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Tracks to delete
+     */
+    where?: TrackWhereInput
+    /**
+     * Limit how many Tracks to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Track.artist
+   */
+  export type Track$artistArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Artist
+     */
+    select?: ArtistSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Artist
+     */
+    omit?: ArtistOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArtistInclude<ExtArgs> | null
+    where?: ArtistWhereInput
+    orderBy?: ArtistOrderByWithRelationInput | ArtistOrderByWithRelationInput[]
+    cursor?: ArtistWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ArtistScalarFieldEnum | ArtistScalarFieldEnum[]
+  }
+
+  /**
+   * Track.comments
+   */
+  export type Track$commentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+    where?: CommentWhereInput
+    orderBy?: CommentOrderByWithRelationInput | CommentOrderByWithRelationInput[]
+    cursor?: CommentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CommentScalarFieldEnum | CommentScalarFieldEnum[]
+  }
+
+  /**
+   * Track without action
+   */
+  export type TrackDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Track
+     */
+    select?: TrackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Track
+     */
+    omit?: TrackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrackInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Comment
+   */
+
+  export type AggregateComment = {
+    _count: CommentCountAggregateOutputType | null
+    _avg: CommentAvgAggregateOutputType | null
+    _sum: CommentSumAggregateOutputType | null
+    _min: CommentMinAggregateOutputType | null
+    _max: CommentMaxAggregateOutputType | null
+  }
+
+  export type CommentAvgAggregateOutputType = {
+    id: number | null
+    trackId: number | null
+  }
+
+  export type CommentSumAggregateOutputType = {
+    id: number | null
+    trackId: number | null
+  }
+
+  export type CommentMinAggregateOutputType = {
+    id: number | null
+    description: string | null
+    trackId: number | null
+  }
+
+  export type CommentMaxAggregateOutputType = {
+    id: number | null
+    description: string | null
+    trackId: number | null
+  }
+
+  export type CommentCountAggregateOutputType = {
+    id: number
+    description: number
+    trackId: number
+    _all: number
+  }
+
+
+  export type CommentAvgAggregateInputType = {
+    id?: true
+    trackId?: true
+  }
+
+  export type CommentSumAggregateInputType = {
+    id?: true
+    trackId?: true
+  }
+
+  export type CommentMinAggregateInputType = {
+    id?: true
+    description?: true
+    trackId?: true
+  }
+
+  export type CommentMaxAggregateInputType = {
+    id?: true
+    description?: true
+    trackId?: true
+  }
+
+  export type CommentCountAggregateInputType = {
+    id?: true
+    description?: true
+    trackId?: true
+    _all?: true
+  }
+
+  export type CommentAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Comment to aggregate.
+     */
+    where?: CommentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Comments to fetch.
+     */
+    orderBy?: CommentOrderByWithRelationInput | CommentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CommentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Comments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Comments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Comments
+    **/
+    _count?: true | CommentCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CommentAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CommentSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CommentMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CommentMaxAggregateInputType
+  }
+
+  export type GetCommentAggregateType<T extends CommentAggregateArgs> = {
+        [P in keyof T & keyof AggregateComment]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateComment[P]>
+      : GetScalarType<T[P], AggregateComment[P]>
+  }
+
+
+
+
+  export type CommentGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CommentWhereInput
+    orderBy?: CommentOrderByWithAggregationInput | CommentOrderByWithAggregationInput[]
+    by: CommentScalarFieldEnum[] | CommentScalarFieldEnum
+    having?: CommentScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CommentCountAggregateInputType | true
+    _avg?: CommentAvgAggregateInputType
+    _sum?: CommentSumAggregateInputType
+    _min?: CommentMinAggregateInputType
+    _max?: CommentMaxAggregateInputType
+  }
+
+  export type CommentGroupByOutputType = {
+    id: number
+    description: string
+    trackId: number
+    _count: CommentCountAggregateOutputType | null
+    _avg: CommentAvgAggregateOutputType | null
+    _sum: CommentSumAggregateOutputType | null
+    _min: CommentMinAggregateOutputType | null
+    _max: CommentMaxAggregateOutputType | null
+  }
+
+  type GetCommentGroupByPayload<T extends CommentGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CommentGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CommentGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CommentGroupByOutputType[P]>
+            : GetScalarType<T[P], CommentGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CommentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    description?: boolean
+    trackId?: boolean
+    track?: boolean | TrackDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["comment"]>
+
+  export type CommentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    description?: boolean
+    trackId?: boolean
+    track?: boolean | TrackDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["comment"]>
+
+  export type CommentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    description?: boolean
+    trackId?: boolean
+    track?: boolean | TrackDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["comment"]>
+
+  export type CommentSelectScalar = {
+    id?: boolean
+    description?: boolean
+    trackId?: boolean
+  }
+
+  export type CommentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "description" | "trackId", ExtArgs["result"]["comment"]>
+  export type CommentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    track?: boolean | TrackDefaultArgs<ExtArgs>
+  }
+  export type CommentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    track?: boolean | TrackDefaultArgs<ExtArgs>
+  }
+  export type CommentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    track?: boolean | TrackDefaultArgs<ExtArgs>
+  }
+
+  export type $CommentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Comment"
+    objects: {
+      track: Prisma.$TrackPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      description: string
+      trackId: number
+    }, ExtArgs["result"]["comment"]>
+    composites: {}
+  }
+
+  type CommentGetPayload<S extends boolean | null | undefined | CommentDefaultArgs> = $Result.GetResult<Prisma.$CommentPayload, S>
+
+  type CommentCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CommentFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CommentCountAggregateInputType | true
+    }
+
+  export interface CommentDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Comment'], meta: { name: 'Comment' } }
+    /**
+     * Find zero or one Comment that matches the filter.
+     * @param {CommentFindUniqueArgs} args - Arguments to find a Comment
+     * @example
+     * // Get one Comment
+     * const comment = await prisma.comment.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CommentFindUniqueArgs>(args: SelectSubset<T, CommentFindUniqueArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Comment that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CommentFindUniqueOrThrowArgs} args - Arguments to find a Comment
+     * @example
+     * // Get one Comment
+     * const comment = await prisma.comment.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CommentFindUniqueOrThrowArgs>(args: SelectSubset<T, CommentFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Comment that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommentFindFirstArgs} args - Arguments to find a Comment
+     * @example
+     * // Get one Comment
+     * const comment = await prisma.comment.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CommentFindFirstArgs>(args?: SelectSubset<T, CommentFindFirstArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Comment that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommentFindFirstOrThrowArgs} args - Arguments to find a Comment
+     * @example
+     * // Get one Comment
+     * const comment = await prisma.comment.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CommentFindFirstOrThrowArgs>(args?: SelectSubset<T, CommentFindFirstOrThrowArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Comments that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommentFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Comments
+     * const comments = await prisma.comment.findMany()
+     * 
+     * // Get first 10 Comments
+     * const comments = await prisma.comment.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const commentWithIdOnly = await prisma.comment.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CommentFindManyArgs>(args?: SelectSubset<T, CommentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Comment.
+     * @param {CommentCreateArgs} args - Arguments to create a Comment.
+     * @example
+     * // Create one Comment
+     * const Comment = await prisma.comment.create({
+     *   data: {
+     *     // ... data to create a Comment
+     *   }
+     * })
+     * 
+     */
+    create<T extends CommentCreateArgs>(args: SelectSubset<T, CommentCreateArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Comments.
+     * @param {CommentCreateManyArgs} args - Arguments to create many Comments.
+     * @example
+     * // Create many Comments
+     * const comment = await prisma.comment.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CommentCreateManyArgs>(args?: SelectSubset<T, CommentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Comments and returns the data saved in the database.
+     * @param {CommentCreateManyAndReturnArgs} args - Arguments to create many Comments.
+     * @example
+     * // Create many Comments
+     * const comment = await prisma.comment.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Comments and only return the `id`
+     * const commentWithIdOnly = await prisma.comment.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CommentCreateManyAndReturnArgs>(args?: SelectSubset<T, CommentCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Comment.
+     * @param {CommentDeleteArgs} args - Arguments to delete one Comment.
+     * @example
+     * // Delete one Comment
+     * const Comment = await prisma.comment.delete({
+     *   where: {
+     *     // ... filter to delete one Comment
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CommentDeleteArgs>(args: SelectSubset<T, CommentDeleteArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Comment.
+     * @param {CommentUpdateArgs} args - Arguments to update one Comment.
+     * @example
+     * // Update one Comment
+     * const comment = await prisma.comment.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CommentUpdateArgs>(args: SelectSubset<T, CommentUpdateArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Comments.
+     * @param {CommentDeleteManyArgs} args - Arguments to filter Comments to delete.
+     * @example
+     * // Delete a few Comments
+     * const { count } = await prisma.comment.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CommentDeleteManyArgs>(args?: SelectSubset<T, CommentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Comments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommentUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Comments
+     * const comment = await prisma.comment.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CommentUpdateManyArgs>(args: SelectSubset<T, CommentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Comments and returns the data updated in the database.
+     * @param {CommentUpdateManyAndReturnArgs} args - Arguments to update many Comments.
+     * @example
+     * // Update many Comments
+     * const comment = await prisma.comment.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Comments and only return the `id`
+     * const commentWithIdOnly = await prisma.comment.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CommentUpdateManyAndReturnArgs>(args: SelectSubset<T, CommentUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Comment.
+     * @param {CommentUpsertArgs} args - Arguments to update or create a Comment.
+     * @example
+     * // Update or create a Comment
+     * const comment = await prisma.comment.upsert({
+     *   create: {
+     *     // ... data to create a Comment
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Comment we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CommentUpsertArgs>(args: SelectSubset<T, CommentUpsertArgs<ExtArgs>>): Prisma__CommentClient<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Comments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommentCountArgs} args - Arguments to filter Comments to count.
+     * @example
+     * // Count the number of Comments
+     * const count = await prisma.comment.count({
+     *   where: {
+     *     // ... the filter for the Comments we want to count
+     *   }
+     * })
+    **/
+    count<T extends CommentCountArgs>(
+      args?: Subset<T, CommentCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CommentCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Comment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CommentAggregateArgs>(args: Subset<T, CommentAggregateArgs>): Prisma.PrismaPromise<GetCommentAggregateType<T>>
+
+    /**
+     * Group by Comment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommentGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CommentGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CommentGroupByArgs['orderBy'] }
+        : { orderBy?: CommentGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CommentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCommentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Comment model
+   */
+  readonly fields: CommentFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Comment.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CommentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    track<T extends TrackDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TrackDefaultArgs<ExtArgs>>): Prisma__TrackClient<$Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Comment model
+   */
+  interface CommentFieldRefs {
+    readonly id: FieldRef<"Comment", 'Int'>
+    readonly description: FieldRef<"Comment", 'String'>
+    readonly trackId: FieldRef<"Comment", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Comment findUnique
+   */
+  export type CommentFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+    /**
+     * Filter, which Comment to fetch.
+     */
+    where: CommentWhereUniqueInput
+  }
+
+  /**
+   * Comment findUniqueOrThrow
+   */
+  export type CommentFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+    /**
+     * Filter, which Comment to fetch.
+     */
+    where: CommentWhereUniqueInput
+  }
+
+  /**
+   * Comment findFirst
+   */
+  export type CommentFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+    /**
+     * Filter, which Comment to fetch.
+     */
+    where?: CommentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Comments to fetch.
+     */
+    orderBy?: CommentOrderByWithRelationInput | CommentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Comments.
+     */
+    cursor?: CommentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Comments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Comments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Comments.
+     */
+    distinct?: CommentScalarFieldEnum | CommentScalarFieldEnum[]
+  }
+
+  /**
+   * Comment findFirstOrThrow
+   */
+  export type CommentFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+    /**
+     * Filter, which Comment to fetch.
+     */
+    where?: CommentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Comments to fetch.
+     */
+    orderBy?: CommentOrderByWithRelationInput | CommentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Comments.
+     */
+    cursor?: CommentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Comments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Comments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Comments.
+     */
+    distinct?: CommentScalarFieldEnum | CommentScalarFieldEnum[]
+  }
+
+  /**
+   * Comment findMany
+   */
+  export type CommentFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+    /**
+     * Filter, which Comments to fetch.
+     */
+    where?: CommentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Comments to fetch.
+     */
+    orderBy?: CommentOrderByWithRelationInput | CommentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Comments.
+     */
+    cursor?: CommentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Comments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Comments.
+     */
+    skip?: number
+    distinct?: CommentScalarFieldEnum | CommentScalarFieldEnum[]
+  }
+
+  /**
+   * Comment create
+   */
+  export type CommentCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Comment.
+     */
+    data: XOR<CommentCreateInput, CommentUncheckedCreateInput>
+  }
+
+  /**
+   * Comment createMany
+   */
+  export type CommentCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Comments.
+     */
+    data: CommentCreateManyInput | CommentCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Comment createManyAndReturn
+   */
+  export type CommentCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * The data used to create many Comments.
+     */
+    data: CommentCreateManyInput | CommentCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Comment update
+   */
+  export type CommentUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Comment.
+     */
+    data: XOR<CommentUpdateInput, CommentUncheckedUpdateInput>
+    /**
+     * Choose, which Comment to update.
+     */
+    where: CommentWhereUniqueInput
+  }
+
+  /**
+   * Comment updateMany
+   */
+  export type CommentUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Comments.
+     */
+    data: XOR<CommentUpdateManyMutationInput, CommentUncheckedUpdateManyInput>
+    /**
+     * Filter which Comments to update
+     */
+    where?: CommentWhereInput
+    /**
+     * Limit how many Comments to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Comment updateManyAndReturn
+   */
+  export type CommentUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * The data used to update Comments.
+     */
+    data: XOR<CommentUpdateManyMutationInput, CommentUncheckedUpdateManyInput>
+    /**
+     * Filter which Comments to update
+     */
+    where?: CommentWhereInput
+    /**
+     * Limit how many Comments to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Comment upsert
+   */
+  export type CommentUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Comment to update in case it exists.
+     */
+    where: CommentWhereUniqueInput
+    /**
+     * In case the Comment found by the `where` argument doesn't exist, create a new Comment with this data.
+     */
+    create: XOR<CommentCreateInput, CommentUncheckedCreateInput>
+    /**
+     * In case the Comment was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CommentUpdateInput, CommentUncheckedUpdateInput>
+  }
+
+  /**
+   * Comment delete
+   */
+  export type CommentDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+    /**
+     * Filter which Comment to delete.
+     */
+    where: CommentWhereUniqueInput
+  }
+
+  /**
+   * Comment deleteMany
+   */
+  export type CommentDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Comments to delete
+     */
+    where?: CommentWhereInput
+    /**
+     * Limit how many Comments to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Comment without action
+   */
+  export type CommentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -1893,6 +5520,35 @@ export namespace Prisma {
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+  export const ArtistScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    picture: 'picture'
+  };
+
+  export type ArtistScalarFieldEnum = (typeof ArtistScalarFieldEnum)[keyof typeof ArtistScalarFieldEnum]
+
+
+  export const TrackScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    listens: 'listens',
+    picture: 'picture',
+    audio: 'audio'
+  };
+
+  export type TrackScalarFieldEnum = (typeof TrackScalarFieldEnum)[keyof typeof TrackScalarFieldEnum]
+
+
+  export const CommentScalarFieldEnum: {
+    id: 'id',
+    description: 'description',
+    trackId: 'trackId'
+  };
+
+  export type CommentScalarFieldEnum = (typeof CommentScalarFieldEnum)[keyof typeof CommentScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -2005,6 +5661,160 @@ export namespace Prisma {
     password?: StringWithAggregatesFilter<"User"> | string
   }
 
+  export type ArtistWhereInput = {
+    AND?: ArtistWhereInput | ArtistWhereInput[]
+    OR?: ArtistWhereInput[]
+    NOT?: ArtistWhereInput | ArtistWhereInput[]
+    id?: IntFilter<"Artist"> | number
+    name?: StringFilter<"Artist"> | string
+    picture?: StringFilter<"Artist"> | string
+    tracks?: TrackListRelationFilter
+  }
+
+  export type ArtistOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    picture?: SortOrder
+    tracks?: TrackOrderByRelationAggregateInput
+  }
+
+  export type ArtistWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ArtistWhereInput | ArtistWhereInput[]
+    OR?: ArtistWhereInput[]
+    NOT?: ArtistWhereInput | ArtistWhereInput[]
+    name?: StringFilter<"Artist"> | string
+    picture?: StringFilter<"Artist"> | string
+    tracks?: TrackListRelationFilter
+  }, "id">
+
+  export type ArtistOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    picture?: SortOrder
+    _count?: ArtistCountOrderByAggregateInput
+    _avg?: ArtistAvgOrderByAggregateInput
+    _max?: ArtistMaxOrderByAggregateInput
+    _min?: ArtistMinOrderByAggregateInput
+    _sum?: ArtistSumOrderByAggregateInput
+  }
+
+  export type ArtistScalarWhereWithAggregatesInput = {
+    AND?: ArtistScalarWhereWithAggregatesInput | ArtistScalarWhereWithAggregatesInput[]
+    OR?: ArtistScalarWhereWithAggregatesInput[]
+    NOT?: ArtistScalarWhereWithAggregatesInput | ArtistScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Artist"> | number
+    name?: StringWithAggregatesFilter<"Artist"> | string
+    picture?: StringWithAggregatesFilter<"Artist"> | string
+  }
+
+  export type TrackWhereInput = {
+    AND?: TrackWhereInput | TrackWhereInput[]
+    OR?: TrackWhereInput[]
+    NOT?: TrackWhereInput | TrackWhereInput[]
+    id?: IntFilter<"Track"> | number
+    title?: StringFilter<"Track"> | string
+    listens?: IntFilter<"Track"> | number
+    picture?: StringFilter<"Track"> | string
+    audio?: StringFilter<"Track"> | string
+    artist?: ArtistListRelationFilter
+    comments?: CommentListRelationFilter
+  }
+
+  export type TrackOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    listens?: SortOrder
+    picture?: SortOrder
+    audio?: SortOrder
+    artist?: ArtistOrderByRelationAggregateInput
+    comments?: CommentOrderByRelationAggregateInput
+  }
+
+  export type TrackWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: TrackWhereInput | TrackWhereInput[]
+    OR?: TrackWhereInput[]
+    NOT?: TrackWhereInput | TrackWhereInput[]
+    title?: StringFilter<"Track"> | string
+    listens?: IntFilter<"Track"> | number
+    picture?: StringFilter<"Track"> | string
+    audio?: StringFilter<"Track"> | string
+    artist?: ArtistListRelationFilter
+    comments?: CommentListRelationFilter
+  }, "id">
+
+  export type TrackOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    listens?: SortOrder
+    picture?: SortOrder
+    audio?: SortOrder
+    _count?: TrackCountOrderByAggregateInput
+    _avg?: TrackAvgOrderByAggregateInput
+    _max?: TrackMaxOrderByAggregateInput
+    _min?: TrackMinOrderByAggregateInput
+    _sum?: TrackSumOrderByAggregateInput
+  }
+
+  export type TrackScalarWhereWithAggregatesInput = {
+    AND?: TrackScalarWhereWithAggregatesInput | TrackScalarWhereWithAggregatesInput[]
+    OR?: TrackScalarWhereWithAggregatesInput[]
+    NOT?: TrackScalarWhereWithAggregatesInput | TrackScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Track"> | number
+    title?: StringWithAggregatesFilter<"Track"> | string
+    listens?: IntWithAggregatesFilter<"Track"> | number
+    picture?: StringWithAggregatesFilter<"Track"> | string
+    audio?: StringWithAggregatesFilter<"Track"> | string
+  }
+
+  export type CommentWhereInput = {
+    AND?: CommentWhereInput | CommentWhereInput[]
+    OR?: CommentWhereInput[]
+    NOT?: CommentWhereInput | CommentWhereInput[]
+    id?: IntFilter<"Comment"> | number
+    description?: StringFilter<"Comment"> | string
+    trackId?: IntFilter<"Comment"> | number
+    track?: XOR<TrackScalarRelationFilter, TrackWhereInput>
+  }
+
+  export type CommentOrderByWithRelationInput = {
+    id?: SortOrder
+    description?: SortOrder
+    trackId?: SortOrder
+    track?: TrackOrderByWithRelationInput
+  }
+
+  export type CommentWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: CommentWhereInput | CommentWhereInput[]
+    OR?: CommentWhereInput[]
+    NOT?: CommentWhereInput | CommentWhereInput[]
+    description?: StringFilter<"Comment"> | string
+    trackId?: IntFilter<"Comment"> | number
+    track?: XOR<TrackScalarRelationFilter, TrackWhereInput>
+  }, "id">
+
+  export type CommentOrderByWithAggregationInput = {
+    id?: SortOrder
+    description?: SortOrder
+    trackId?: SortOrder
+    _count?: CommentCountOrderByAggregateInput
+    _avg?: CommentAvgOrderByAggregateInput
+    _max?: CommentMaxOrderByAggregateInput
+    _min?: CommentMinOrderByAggregateInput
+    _sum?: CommentSumOrderByAggregateInput
+  }
+
+  export type CommentScalarWhereWithAggregatesInput = {
+    AND?: CommentScalarWhereWithAggregatesInput | CommentScalarWhereWithAggregatesInput[]
+    OR?: CommentScalarWhereWithAggregatesInput[]
+    NOT?: CommentScalarWhereWithAggregatesInput | CommentScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Comment"> | number
+    description?: StringWithAggregatesFilter<"Comment"> | string
+    trackId?: IntWithAggregatesFilter<"Comment"> | number
+  }
+
   export type UserCreateInput = {
     email: string
     password: string
@@ -2042,6 +5852,148 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ArtistCreateInput = {
+    name: string
+    picture: string
+    tracks?: TrackCreateNestedManyWithoutArtistInput
+  }
+
+  export type ArtistUncheckedCreateInput = {
+    id?: number
+    name: string
+    picture: string
+    tracks?: TrackUncheckedCreateNestedManyWithoutArtistInput
+  }
+
+  export type ArtistUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    picture?: StringFieldUpdateOperationsInput | string
+    tracks?: TrackUpdateManyWithoutArtistNestedInput
+  }
+
+  export type ArtistUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    picture?: StringFieldUpdateOperationsInput | string
+    tracks?: TrackUncheckedUpdateManyWithoutArtistNestedInput
+  }
+
+  export type ArtistCreateManyInput = {
+    id?: number
+    name: string
+    picture: string
+  }
+
+  export type ArtistUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    picture?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ArtistUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    picture?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TrackCreateInput = {
+    title: string
+    listens?: number
+    picture: string
+    audio: string
+    artist?: ArtistCreateNestedManyWithoutTracksInput
+    comments?: CommentCreateNestedManyWithoutTrackInput
+  }
+
+  export type TrackUncheckedCreateInput = {
+    id?: number
+    title: string
+    listens?: number
+    picture: string
+    audio: string
+    artist?: ArtistUncheckedCreateNestedManyWithoutTracksInput
+    comments?: CommentUncheckedCreateNestedManyWithoutTrackInput
+  }
+
+  export type TrackUpdateInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    listens?: IntFieldUpdateOperationsInput | number
+    picture?: StringFieldUpdateOperationsInput | string
+    audio?: StringFieldUpdateOperationsInput | string
+    artist?: ArtistUpdateManyWithoutTracksNestedInput
+    comments?: CommentUpdateManyWithoutTrackNestedInput
+  }
+
+  export type TrackUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    listens?: IntFieldUpdateOperationsInput | number
+    picture?: StringFieldUpdateOperationsInput | string
+    audio?: StringFieldUpdateOperationsInput | string
+    artist?: ArtistUncheckedUpdateManyWithoutTracksNestedInput
+    comments?: CommentUncheckedUpdateManyWithoutTrackNestedInput
+  }
+
+  export type TrackCreateManyInput = {
+    id?: number
+    title: string
+    listens?: number
+    picture: string
+    audio: string
+  }
+
+  export type TrackUpdateManyMutationInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    listens?: IntFieldUpdateOperationsInput | number
+    picture?: StringFieldUpdateOperationsInput | string
+    audio?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TrackUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    listens?: IntFieldUpdateOperationsInput | number
+    picture?: StringFieldUpdateOperationsInput | string
+    audio?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CommentCreateInput = {
+    description: string
+    track: TrackCreateNestedOneWithoutCommentsInput
+  }
+
+  export type CommentUncheckedCreateInput = {
+    id?: number
+    description: string
+    trackId: number
+  }
+
+  export type CommentUpdateInput = {
+    description?: StringFieldUpdateOperationsInput | string
+    track?: TrackUpdateOneRequiredWithoutCommentsNestedInput
+  }
+
+  export type CommentUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    trackId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CommentCreateManyInput = {
+    id?: number
+    description: string
+    trackId: number
+  }
+
+  export type CommentUpdateManyMutationInput = {
+    description?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CommentUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    trackId?: IntFieldUpdateOperationsInput | number
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -2130,6 +6082,129 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type TrackListRelationFilter = {
+    every?: TrackWhereInput
+    some?: TrackWhereInput
+    none?: TrackWhereInput
+  }
+
+  export type TrackOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ArtistCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    picture?: SortOrder
+  }
+
+  export type ArtistAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type ArtistMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    picture?: SortOrder
+  }
+
+  export type ArtistMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    picture?: SortOrder
+  }
+
+  export type ArtistSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type ArtistListRelationFilter = {
+    every?: ArtistWhereInput
+    some?: ArtistWhereInput
+    none?: ArtistWhereInput
+  }
+
+  export type CommentListRelationFilter = {
+    every?: CommentWhereInput
+    some?: CommentWhereInput
+    none?: CommentWhereInput
+  }
+
+  export type ArtistOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CommentOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type TrackCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    listens?: SortOrder
+    picture?: SortOrder
+    audio?: SortOrder
+  }
+
+  export type TrackAvgOrderByAggregateInput = {
+    id?: SortOrder
+    listens?: SortOrder
+  }
+
+  export type TrackMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    listens?: SortOrder
+    picture?: SortOrder
+    audio?: SortOrder
+  }
+
+  export type TrackMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    listens?: SortOrder
+    picture?: SortOrder
+    audio?: SortOrder
+  }
+
+  export type TrackSumOrderByAggregateInput = {
+    id?: SortOrder
+    listens?: SortOrder
+  }
+
+  export type TrackScalarRelationFilter = {
+    is?: TrackWhereInput
+    isNot?: TrackWhereInput
+  }
+
+  export type CommentCountOrderByAggregateInput = {
+    id?: SortOrder
+    description?: SortOrder
+    trackId?: SortOrder
+  }
+
+  export type CommentAvgOrderByAggregateInput = {
+    id?: SortOrder
+    trackId?: SortOrder
+  }
+
+  export type CommentMaxOrderByAggregateInput = {
+    id?: SortOrder
+    description?: SortOrder
+    trackId?: SortOrder
+  }
+
+  export type CommentMinOrderByAggregateInput = {
+    id?: SortOrder
+    description?: SortOrder
+    trackId?: SortOrder
+  }
+
+  export type CommentSumOrderByAggregateInput = {
+    id?: SortOrder
+    trackId?: SortOrder
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -2140,6 +6215,138 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type TrackCreateNestedManyWithoutArtistInput = {
+    create?: XOR<TrackCreateWithoutArtistInput, TrackUncheckedCreateWithoutArtistInput> | TrackCreateWithoutArtistInput[] | TrackUncheckedCreateWithoutArtistInput[]
+    connectOrCreate?: TrackCreateOrConnectWithoutArtistInput | TrackCreateOrConnectWithoutArtistInput[]
+    connect?: TrackWhereUniqueInput | TrackWhereUniqueInput[]
+  }
+
+  export type TrackUncheckedCreateNestedManyWithoutArtistInput = {
+    create?: XOR<TrackCreateWithoutArtistInput, TrackUncheckedCreateWithoutArtistInput> | TrackCreateWithoutArtistInput[] | TrackUncheckedCreateWithoutArtistInput[]
+    connectOrCreate?: TrackCreateOrConnectWithoutArtistInput | TrackCreateOrConnectWithoutArtistInput[]
+    connect?: TrackWhereUniqueInput | TrackWhereUniqueInput[]
+  }
+
+  export type TrackUpdateManyWithoutArtistNestedInput = {
+    create?: XOR<TrackCreateWithoutArtistInput, TrackUncheckedCreateWithoutArtistInput> | TrackCreateWithoutArtistInput[] | TrackUncheckedCreateWithoutArtistInput[]
+    connectOrCreate?: TrackCreateOrConnectWithoutArtistInput | TrackCreateOrConnectWithoutArtistInput[]
+    upsert?: TrackUpsertWithWhereUniqueWithoutArtistInput | TrackUpsertWithWhereUniqueWithoutArtistInput[]
+    set?: TrackWhereUniqueInput | TrackWhereUniqueInput[]
+    disconnect?: TrackWhereUniqueInput | TrackWhereUniqueInput[]
+    delete?: TrackWhereUniqueInput | TrackWhereUniqueInput[]
+    connect?: TrackWhereUniqueInput | TrackWhereUniqueInput[]
+    update?: TrackUpdateWithWhereUniqueWithoutArtistInput | TrackUpdateWithWhereUniqueWithoutArtistInput[]
+    updateMany?: TrackUpdateManyWithWhereWithoutArtistInput | TrackUpdateManyWithWhereWithoutArtistInput[]
+    deleteMany?: TrackScalarWhereInput | TrackScalarWhereInput[]
+  }
+
+  export type TrackUncheckedUpdateManyWithoutArtistNestedInput = {
+    create?: XOR<TrackCreateWithoutArtistInput, TrackUncheckedCreateWithoutArtistInput> | TrackCreateWithoutArtistInput[] | TrackUncheckedCreateWithoutArtistInput[]
+    connectOrCreate?: TrackCreateOrConnectWithoutArtistInput | TrackCreateOrConnectWithoutArtistInput[]
+    upsert?: TrackUpsertWithWhereUniqueWithoutArtistInput | TrackUpsertWithWhereUniqueWithoutArtistInput[]
+    set?: TrackWhereUniqueInput | TrackWhereUniqueInput[]
+    disconnect?: TrackWhereUniqueInput | TrackWhereUniqueInput[]
+    delete?: TrackWhereUniqueInput | TrackWhereUniqueInput[]
+    connect?: TrackWhereUniqueInput | TrackWhereUniqueInput[]
+    update?: TrackUpdateWithWhereUniqueWithoutArtistInput | TrackUpdateWithWhereUniqueWithoutArtistInput[]
+    updateMany?: TrackUpdateManyWithWhereWithoutArtistInput | TrackUpdateManyWithWhereWithoutArtistInput[]
+    deleteMany?: TrackScalarWhereInput | TrackScalarWhereInput[]
+  }
+
+  export type ArtistCreateNestedManyWithoutTracksInput = {
+    create?: XOR<ArtistCreateWithoutTracksInput, ArtistUncheckedCreateWithoutTracksInput> | ArtistCreateWithoutTracksInput[] | ArtistUncheckedCreateWithoutTracksInput[]
+    connectOrCreate?: ArtistCreateOrConnectWithoutTracksInput | ArtistCreateOrConnectWithoutTracksInput[]
+    connect?: ArtistWhereUniqueInput | ArtistWhereUniqueInput[]
+  }
+
+  export type CommentCreateNestedManyWithoutTrackInput = {
+    create?: XOR<CommentCreateWithoutTrackInput, CommentUncheckedCreateWithoutTrackInput> | CommentCreateWithoutTrackInput[] | CommentUncheckedCreateWithoutTrackInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutTrackInput | CommentCreateOrConnectWithoutTrackInput[]
+    createMany?: CommentCreateManyTrackInputEnvelope
+    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+  }
+
+  export type ArtistUncheckedCreateNestedManyWithoutTracksInput = {
+    create?: XOR<ArtistCreateWithoutTracksInput, ArtistUncheckedCreateWithoutTracksInput> | ArtistCreateWithoutTracksInput[] | ArtistUncheckedCreateWithoutTracksInput[]
+    connectOrCreate?: ArtistCreateOrConnectWithoutTracksInput | ArtistCreateOrConnectWithoutTracksInput[]
+    connect?: ArtistWhereUniqueInput | ArtistWhereUniqueInput[]
+  }
+
+  export type CommentUncheckedCreateNestedManyWithoutTrackInput = {
+    create?: XOR<CommentCreateWithoutTrackInput, CommentUncheckedCreateWithoutTrackInput> | CommentCreateWithoutTrackInput[] | CommentUncheckedCreateWithoutTrackInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutTrackInput | CommentCreateOrConnectWithoutTrackInput[]
+    createMany?: CommentCreateManyTrackInputEnvelope
+    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+  }
+
+  export type ArtistUpdateManyWithoutTracksNestedInput = {
+    create?: XOR<ArtistCreateWithoutTracksInput, ArtistUncheckedCreateWithoutTracksInput> | ArtistCreateWithoutTracksInput[] | ArtistUncheckedCreateWithoutTracksInput[]
+    connectOrCreate?: ArtistCreateOrConnectWithoutTracksInput | ArtistCreateOrConnectWithoutTracksInput[]
+    upsert?: ArtistUpsertWithWhereUniqueWithoutTracksInput | ArtistUpsertWithWhereUniqueWithoutTracksInput[]
+    set?: ArtistWhereUniqueInput | ArtistWhereUniqueInput[]
+    disconnect?: ArtistWhereUniqueInput | ArtistWhereUniqueInput[]
+    delete?: ArtistWhereUniqueInput | ArtistWhereUniqueInput[]
+    connect?: ArtistWhereUniqueInput | ArtistWhereUniqueInput[]
+    update?: ArtistUpdateWithWhereUniqueWithoutTracksInput | ArtistUpdateWithWhereUniqueWithoutTracksInput[]
+    updateMany?: ArtistUpdateManyWithWhereWithoutTracksInput | ArtistUpdateManyWithWhereWithoutTracksInput[]
+    deleteMany?: ArtistScalarWhereInput | ArtistScalarWhereInput[]
+  }
+
+  export type CommentUpdateManyWithoutTrackNestedInput = {
+    create?: XOR<CommentCreateWithoutTrackInput, CommentUncheckedCreateWithoutTrackInput> | CommentCreateWithoutTrackInput[] | CommentUncheckedCreateWithoutTrackInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutTrackInput | CommentCreateOrConnectWithoutTrackInput[]
+    upsert?: CommentUpsertWithWhereUniqueWithoutTrackInput | CommentUpsertWithWhereUniqueWithoutTrackInput[]
+    createMany?: CommentCreateManyTrackInputEnvelope
+    set?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    disconnect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    delete?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    update?: CommentUpdateWithWhereUniqueWithoutTrackInput | CommentUpdateWithWhereUniqueWithoutTrackInput[]
+    updateMany?: CommentUpdateManyWithWhereWithoutTrackInput | CommentUpdateManyWithWhereWithoutTrackInput[]
+    deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
+  }
+
+  export type ArtistUncheckedUpdateManyWithoutTracksNestedInput = {
+    create?: XOR<ArtistCreateWithoutTracksInput, ArtistUncheckedCreateWithoutTracksInput> | ArtistCreateWithoutTracksInput[] | ArtistUncheckedCreateWithoutTracksInput[]
+    connectOrCreate?: ArtistCreateOrConnectWithoutTracksInput | ArtistCreateOrConnectWithoutTracksInput[]
+    upsert?: ArtistUpsertWithWhereUniqueWithoutTracksInput | ArtistUpsertWithWhereUniqueWithoutTracksInput[]
+    set?: ArtistWhereUniqueInput | ArtistWhereUniqueInput[]
+    disconnect?: ArtistWhereUniqueInput | ArtistWhereUniqueInput[]
+    delete?: ArtistWhereUniqueInput | ArtistWhereUniqueInput[]
+    connect?: ArtistWhereUniqueInput | ArtistWhereUniqueInput[]
+    update?: ArtistUpdateWithWhereUniqueWithoutTracksInput | ArtistUpdateWithWhereUniqueWithoutTracksInput[]
+    updateMany?: ArtistUpdateManyWithWhereWithoutTracksInput | ArtistUpdateManyWithWhereWithoutTracksInput[]
+    deleteMany?: ArtistScalarWhereInput | ArtistScalarWhereInput[]
+  }
+
+  export type CommentUncheckedUpdateManyWithoutTrackNestedInput = {
+    create?: XOR<CommentCreateWithoutTrackInput, CommentUncheckedCreateWithoutTrackInput> | CommentCreateWithoutTrackInput[] | CommentUncheckedCreateWithoutTrackInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutTrackInput | CommentCreateOrConnectWithoutTrackInput[]
+    upsert?: CommentUpsertWithWhereUniqueWithoutTrackInput | CommentUpsertWithWhereUniqueWithoutTrackInput[]
+    createMany?: CommentCreateManyTrackInputEnvelope
+    set?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    disconnect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    delete?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    update?: CommentUpdateWithWhereUniqueWithoutTrackInput | CommentUpdateWithWhereUniqueWithoutTrackInput[]
+    updateMany?: CommentUpdateManyWithWhereWithoutTrackInput | CommentUpdateManyWithWhereWithoutTrackInput[]
+    deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
+  }
+
+  export type TrackCreateNestedOneWithoutCommentsInput = {
+    create?: XOR<TrackCreateWithoutCommentsInput, TrackUncheckedCreateWithoutCommentsInput>
+    connectOrCreate?: TrackCreateOrConnectWithoutCommentsInput
+    connect?: TrackWhereUniqueInput
+  }
+
+  export type TrackUpdateOneRequiredWithoutCommentsNestedInput = {
+    create?: XOR<TrackCreateWithoutCommentsInput, TrackUncheckedCreateWithoutCommentsInput>
+    connectOrCreate?: TrackCreateOrConnectWithoutCommentsInput
+    upsert?: TrackUpsertWithoutCommentsInput
+    connect?: TrackWhereUniqueInput
+    update?: XOR<XOR<TrackUpdateToOneWithWhereWithoutCommentsInput, TrackUpdateWithoutCommentsInput>, TrackUncheckedUpdateWithoutCommentsInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -2209,6 +6416,251 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type TrackCreateWithoutArtistInput = {
+    title: string
+    listens?: number
+    picture: string
+    audio: string
+    comments?: CommentCreateNestedManyWithoutTrackInput
+  }
+
+  export type TrackUncheckedCreateWithoutArtistInput = {
+    id?: number
+    title: string
+    listens?: number
+    picture: string
+    audio: string
+    comments?: CommentUncheckedCreateNestedManyWithoutTrackInput
+  }
+
+  export type TrackCreateOrConnectWithoutArtistInput = {
+    where: TrackWhereUniqueInput
+    create: XOR<TrackCreateWithoutArtistInput, TrackUncheckedCreateWithoutArtistInput>
+  }
+
+  export type TrackUpsertWithWhereUniqueWithoutArtistInput = {
+    where: TrackWhereUniqueInput
+    update: XOR<TrackUpdateWithoutArtistInput, TrackUncheckedUpdateWithoutArtistInput>
+    create: XOR<TrackCreateWithoutArtistInput, TrackUncheckedCreateWithoutArtistInput>
+  }
+
+  export type TrackUpdateWithWhereUniqueWithoutArtistInput = {
+    where: TrackWhereUniqueInput
+    data: XOR<TrackUpdateWithoutArtistInput, TrackUncheckedUpdateWithoutArtistInput>
+  }
+
+  export type TrackUpdateManyWithWhereWithoutArtistInput = {
+    where: TrackScalarWhereInput
+    data: XOR<TrackUpdateManyMutationInput, TrackUncheckedUpdateManyWithoutArtistInput>
+  }
+
+  export type TrackScalarWhereInput = {
+    AND?: TrackScalarWhereInput | TrackScalarWhereInput[]
+    OR?: TrackScalarWhereInput[]
+    NOT?: TrackScalarWhereInput | TrackScalarWhereInput[]
+    id?: IntFilter<"Track"> | number
+    title?: StringFilter<"Track"> | string
+    listens?: IntFilter<"Track"> | number
+    picture?: StringFilter<"Track"> | string
+    audio?: StringFilter<"Track"> | string
+  }
+
+  export type ArtistCreateWithoutTracksInput = {
+    name: string
+    picture: string
+  }
+
+  export type ArtistUncheckedCreateWithoutTracksInput = {
+    id?: number
+    name: string
+    picture: string
+  }
+
+  export type ArtistCreateOrConnectWithoutTracksInput = {
+    where: ArtistWhereUniqueInput
+    create: XOR<ArtistCreateWithoutTracksInput, ArtistUncheckedCreateWithoutTracksInput>
+  }
+
+  export type CommentCreateWithoutTrackInput = {
+    description: string
+  }
+
+  export type CommentUncheckedCreateWithoutTrackInput = {
+    id?: number
+    description: string
+  }
+
+  export type CommentCreateOrConnectWithoutTrackInput = {
+    where: CommentWhereUniqueInput
+    create: XOR<CommentCreateWithoutTrackInput, CommentUncheckedCreateWithoutTrackInput>
+  }
+
+  export type CommentCreateManyTrackInputEnvelope = {
+    data: CommentCreateManyTrackInput | CommentCreateManyTrackInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ArtistUpsertWithWhereUniqueWithoutTracksInput = {
+    where: ArtistWhereUniqueInput
+    update: XOR<ArtistUpdateWithoutTracksInput, ArtistUncheckedUpdateWithoutTracksInput>
+    create: XOR<ArtistCreateWithoutTracksInput, ArtistUncheckedCreateWithoutTracksInput>
+  }
+
+  export type ArtistUpdateWithWhereUniqueWithoutTracksInput = {
+    where: ArtistWhereUniqueInput
+    data: XOR<ArtistUpdateWithoutTracksInput, ArtistUncheckedUpdateWithoutTracksInput>
+  }
+
+  export type ArtistUpdateManyWithWhereWithoutTracksInput = {
+    where: ArtistScalarWhereInput
+    data: XOR<ArtistUpdateManyMutationInput, ArtistUncheckedUpdateManyWithoutTracksInput>
+  }
+
+  export type ArtistScalarWhereInput = {
+    AND?: ArtistScalarWhereInput | ArtistScalarWhereInput[]
+    OR?: ArtistScalarWhereInput[]
+    NOT?: ArtistScalarWhereInput | ArtistScalarWhereInput[]
+    id?: IntFilter<"Artist"> | number
+    name?: StringFilter<"Artist"> | string
+    picture?: StringFilter<"Artist"> | string
+  }
+
+  export type CommentUpsertWithWhereUniqueWithoutTrackInput = {
+    where: CommentWhereUniqueInput
+    update: XOR<CommentUpdateWithoutTrackInput, CommentUncheckedUpdateWithoutTrackInput>
+    create: XOR<CommentCreateWithoutTrackInput, CommentUncheckedCreateWithoutTrackInput>
+  }
+
+  export type CommentUpdateWithWhereUniqueWithoutTrackInput = {
+    where: CommentWhereUniqueInput
+    data: XOR<CommentUpdateWithoutTrackInput, CommentUncheckedUpdateWithoutTrackInput>
+  }
+
+  export type CommentUpdateManyWithWhereWithoutTrackInput = {
+    where: CommentScalarWhereInput
+    data: XOR<CommentUpdateManyMutationInput, CommentUncheckedUpdateManyWithoutTrackInput>
+  }
+
+  export type CommentScalarWhereInput = {
+    AND?: CommentScalarWhereInput | CommentScalarWhereInput[]
+    OR?: CommentScalarWhereInput[]
+    NOT?: CommentScalarWhereInput | CommentScalarWhereInput[]
+    id?: IntFilter<"Comment"> | number
+    description?: StringFilter<"Comment"> | string
+    trackId?: IntFilter<"Comment"> | number
+  }
+
+  export type TrackCreateWithoutCommentsInput = {
+    title: string
+    listens?: number
+    picture: string
+    audio: string
+    artist?: ArtistCreateNestedManyWithoutTracksInput
+  }
+
+  export type TrackUncheckedCreateWithoutCommentsInput = {
+    id?: number
+    title: string
+    listens?: number
+    picture: string
+    audio: string
+    artist?: ArtistUncheckedCreateNestedManyWithoutTracksInput
+  }
+
+  export type TrackCreateOrConnectWithoutCommentsInput = {
+    where: TrackWhereUniqueInput
+    create: XOR<TrackCreateWithoutCommentsInput, TrackUncheckedCreateWithoutCommentsInput>
+  }
+
+  export type TrackUpsertWithoutCommentsInput = {
+    update: XOR<TrackUpdateWithoutCommentsInput, TrackUncheckedUpdateWithoutCommentsInput>
+    create: XOR<TrackCreateWithoutCommentsInput, TrackUncheckedCreateWithoutCommentsInput>
+    where?: TrackWhereInput
+  }
+
+  export type TrackUpdateToOneWithWhereWithoutCommentsInput = {
+    where?: TrackWhereInput
+    data: XOR<TrackUpdateWithoutCommentsInput, TrackUncheckedUpdateWithoutCommentsInput>
+  }
+
+  export type TrackUpdateWithoutCommentsInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    listens?: IntFieldUpdateOperationsInput | number
+    picture?: StringFieldUpdateOperationsInput | string
+    audio?: StringFieldUpdateOperationsInput | string
+    artist?: ArtistUpdateManyWithoutTracksNestedInput
+  }
+
+  export type TrackUncheckedUpdateWithoutCommentsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    listens?: IntFieldUpdateOperationsInput | number
+    picture?: StringFieldUpdateOperationsInput | string
+    audio?: StringFieldUpdateOperationsInput | string
+    artist?: ArtistUncheckedUpdateManyWithoutTracksNestedInput
+  }
+
+  export type TrackUpdateWithoutArtistInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    listens?: IntFieldUpdateOperationsInput | number
+    picture?: StringFieldUpdateOperationsInput | string
+    audio?: StringFieldUpdateOperationsInput | string
+    comments?: CommentUpdateManyWithoutTrackNestedInput
+  }
+
+  export type TrackUncheckedUpdateWithoutArtistInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    listens?: IntFieldUpdateOperationsInput | number
+    picture?: StringFieldUpdateOperationsInput | string
+    audio?: StringFieldUpdateOperationsInput | string
+    comments?: CommentUncheckedUpdateManyWithoutTrackNestedInput
+  }
+
+  export type TrackUncheckedUpdateManyWithoutArtistInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    listens?: IntFieldUpdateOperationsInput | number
+    picture?: StringFieldUpdateOperationsInput | string
+    audio?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CommentCreateManyTrackInput = {
+    id?: number
+    description: string
+  }
+
+  export type ArtistUpdateWithoutTracksInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    picture?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ArtistUncheckedUpdateWithoutTracksInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    picture?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ArtistUncheckedUpdateManyWithoutTracksInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    picture?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CommentUpdateWithoutTrackInput = {
+    description?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CommentUncheckedUpdateWithoutTrackInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CommentUncheckedUpdateManyWithoutTrackInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
   }
 
 

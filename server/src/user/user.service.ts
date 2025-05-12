@@ -22,7 +22,6 @@ export class UserService {
   }
 
   async getUserByToken(user: GetUserDto) {
-    console.log(user);
     return this.prisma.user.findUnique({
       where: {
         email: user.email,

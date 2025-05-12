@@ -13,3 +13,27 @@ model User {
   email    String @unique
   password String
 }
+
+model Artist {
+  id      Int     @id @default(autoincrement())
+  name    String
+  tracks  Track[]
+  picture String
+}
+
+model Track {
+  id       Int       @id @default(autoincrement())
+  title    String
+  artist   Artist[]
+  listens  Int       @default(0)
+  picture  String
+  audio    String
+  comments Comment[]
+}
+
+model Comment {
+  id          Int    @id @default(autoincrement())
+  description String
+  track       Track  @relation(fields: [trackId], references: [id])
+  trackId     Int
+}

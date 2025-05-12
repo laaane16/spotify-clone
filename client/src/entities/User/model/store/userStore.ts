@@ -10,6 +10,7 @@ const userStore = create<UserModel>((set) => ({
     const data = await initUserData();
 
     if (data instanceof Error) {
+      set({ _inited: true });
       return;
     }
 

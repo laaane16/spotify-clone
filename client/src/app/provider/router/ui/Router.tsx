@@ -6,7 +6,6 @@ import { getUserId, getUserInitData, getUserInited } from '@/entities/User/model
 import { getHomeRoute, getLoginRoute } from '@/shared/configs';
 import PageLoader from '@/shared/ui/PageLoader/PageLoader';
 import NotFoundPage from '@/pages/NotFoundPage/ui/NotFoundPage';
-import { loginByUsername } from '@/pages/AuthPage/model/services/loginByUsername/loginByUsername';
 
 const suspensedEl = (el: ReactNode): ReactNode => (
   <Suspense fallback={<PageLoader />}>{el}</Suspense>

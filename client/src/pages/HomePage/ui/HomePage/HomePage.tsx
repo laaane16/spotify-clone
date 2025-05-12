@@ -6,6 +6,7 @@ import { ActivityPanel } from '@/widgets/ActivityPanel';
 import { Text } from '@/shared/ui';
 
 import styles from './HomePage.module.scss';
+import SingCard from '@/entities/Sing/ui/SingCard/SingCard';
 
 interface Props {
   className?: string;
@@ -33,6 +34,13 @@ const HomePage: FC<Props> = (props) => (
           </Text>
         </div>
       </div>
+      <ul>
+        {new Array(15).fill(1).map(() => (
+          <li>
+            <SingCard />
+          </li>
+        ))}
+      </ul>
     </main>
     <ActivityPanel className={styles.activityPanel} />
   </div>
